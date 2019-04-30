@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/Echosong/beego_blog/models"
-	"github.com/Echosong/beego_blog/util"
+	"github.com/xiaochengfu/beego_blog/models"
+	"github.com/xiaochengfu/beego_blog/util"
 	"time"
 )
 
@@ -68,11 +68,7 @@ func (c *BlogController) list() map[string]interface{} {
 */
 func (c *BlogController) Homeapi() {
 	result := c.list()
-	data := make(map[string]interface{})
-	data["code"] = 0
-	data["msg"] = "success"
-	data["data"] = result
-	c.Data["json"] = data
+	c.Data["json"] = Fail("FAIL", 500, result)
 	c.ServeJSON()
 }
 
