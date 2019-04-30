@@ -11,7 +11,7 @@
 
 2 . 下载安装
 
-    $ go get github.com/Echosong/beego_blog
+    $ go get github.com/xiaochengfu/beego_blog
 
 4 . 加入数据库
 
