@@ -16,5 +16,7 @@ func init() {
 	beego.Router("/resource", &controllers.BlogController{}, "*:Resource")
 	beego.Router("/comment", &controllers.BlogController{}, "post:Comment")
 
+	//api
+	beego.Router("/api/homeapi", &controllers.BlogController{}, "*:Homeapi")
 	beego.AutoRouter(&controllers.AdminController{})
 }
