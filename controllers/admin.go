@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"github.com/astaxie/beego/utils"
 	"github.com/xiaochengfu/beego_blog/models"
 	"github.com/xiaochengfu/beego_blog/util"
 	"strconv"
@@ -234,9 +235,18 @@ func (c *AdminController) CategorySave() {
 	category := models.Category{}
 	category.Name = name
 	if id == "" {
-		if _, err := c.o.Insert(&category); err != nil {
+		//批量插入
+		data := []models.Category{
+			{Name: "slene"},
+			{Name: "slene1"},
+			{Name: "slene2"},
+		}
+		fmt.Println(data)
+		if id, err := c.o.InsertMulti(1, data); err != nil {
 			c.History("插入数据错误", "")
 		} else {
+			fmt.Println(id)
+			utils.Display()
 			c.History("插入数据成功", "/admin/category.html")
 		}
 	} else {

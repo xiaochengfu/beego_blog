@@ -68,7 +68,7 @@ func (c *BlogController) list() map[string]interface{} {
 */
 func (c *BlogController) Homeapi() {
 	result := c.list()
-	c.Data["json"] = Fail("FAIL", 500, result)
+	c.Data["json"] = Ok(result, "success")
 	c.ServeJSON()
 }
 
