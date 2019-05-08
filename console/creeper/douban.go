@@ -15,6 +15,7 @@ func GetMovie(url string) {
 	}
 	//bodyString, err := ioutil.ReadAll(resp.Body)
 	//fmt.Println(string(bodyString))
+	fmt.Println(resp.StatusCode)
 	if resp.StatusCode != 200 {
 		fmt.Println("err")
 	}
@@ -92,12 +93,10 @@ func main() {
 	url := "https://movie.douban.com/top250?start="
 	var urls []string
 	var newUrl string
-	fmt.Println("%v", urls)
 	for i := 0; i < 10; i++ {
 		start := i * 25
 		newUrl = url + strconv.Itoa(start)
 		urls = GetToplist(newUrl)
-
 		for _, url := range urls {
 			GetMovie(url)
 		}
