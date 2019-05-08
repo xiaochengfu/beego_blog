@@ -18,5 +18,11 @@ func init() {
 
 	//api
 	beego.Router("/api/homeapi", &controllers.BlogController{}, "*:Homeapi")
+
+	//后台admin
 	beego.AutoRouter(&controllers.AdminController{})
+
+	//chan学习路由
+	beego.Router("/api/run", &controllers.Chan1{}, "*:Run")
+
 }
